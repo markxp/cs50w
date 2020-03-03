@@ -1,0 +1,37 @@
+$highlight-color: darkcyan;
+$notice-color: slategray;
+
+%base-text {
+    color: black;
+}
+
+header {
+    h1 {
+        color: $highlight-color;
+    }
+
+    & > p {
+        color: $notice-color;
+
+        &:hover {
+            background-color: gold;
+            color: black;
+        }
+    }
+}
+
+body {
+    @extend %base-text;
+    background-color: gainsboro;
+
+
+    .target > li:nth-child(2) {
+        font-style: italic;
+        font-weight: bolder;
+        color: $highlight-color;
+    }
+}
+
+#first {
+    color:$highlight-color;
+}

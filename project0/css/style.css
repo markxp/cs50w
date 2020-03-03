@@ -1,0 +1,29 @@
+body {
+  color: black;
+}
+
+header h1 {
+  color: darkcyan;
+}
+header > p {
+  color: slategray;
+}
+header > p:hover {
+  background-color: gold;
+  color: black;
+}
+
+body {
+  background-color: gainsboro;
+}
+body .target > li:nth-child(2) {
+  font-style: italic;
+  font-weight: bolder;
+  color: darkcyan;
+}
+
+#first {
+  color: darkcyan;
+}
+
+/*# sourceMappingURL=style.css.map */
