@@ -1,17 +1,29 @@
-$highlight-color: darkcyan;
-$notice-color: slategray;
+$text-once-color: slateblue;
+
+
+
+:root {
+    --text-highlight-color: darkcyan;
+    --text-notice-color: slategray;
+    --text-normal-color: black;
+
+    --nav-background-color: maroon;
+    
+}
 
 %base-text {
-    color: black;
+    color: var(--text-normal-color);
 }
 
 header {
+    text-align: center;
+
     h1 {
-        color: $highlight-color;
+        color: var(--text-highlight-color);
     }
 
     & > p {
-        color: $notice-color;
+        color: var(--text-notice-color);
 
         &:hover {
             background-color: gold;
@@ -20,18 +32,76 @@ header {
     }
 }
 
-body {
-    @extend %base-text;
-    background-color: gainsboro;
+:root{
+    body {
+        @extend %base-text;
+        background-color: gainsboro;
+
+        @media screen and (max-width: 576px){
+            #nav.my-flex-sm-column {
+                flex-direction: column!important;
+            }
+        }
+
+        @media print {
+            & {
+                display: none;
+            }
+        }
+
+        nav {
+            background-color: var(--nav-background-color);
+            font-size: 20px;
+
+            .nav-link{
+                margin-left: 20px;
+                margin-right: 20px;
+                color: var(--text-notice-color);
+            }
+        }
 
 
-    .target > li:nth-child(2) {
-        font-style: italic;
-        font-weight: bolder;
-        color: $highlight-color;
+        .target > li:nth-child(2) {
+            font-style: italic;
+            font-weight: bolder;
+            color: var(--text-highlight-color);
+        }
+
+        @media screen and (min-width: 576px)  {
+            .emoji-list > li::before {
+            content: "☺️ ";
+            }
+        }
+
+        table {
+
+            &>thead  {
+                th[scope=col], td[scope=col] {
+                    background-color: lightgray;
+                    color: black;
+                    font-size: 0.9rem;
+                }
+            }
+            &>tbody {
+                *[scope=row] {
+                    background-color: cadetblue;
+                    border-radius: 4px;                
+                }
+                td  a{
+                    &, &:hover, &:link, &:visited {
+                        color: inherit;
+                        text-decoration: inherit;
+                        text-decoration-line: underline;
+                    }
+                }
+            }
+        }
     }
 }
-
 #first {
-    color:$highlight-color;
+    color: $text-once-color;
+}
+
+.green {
+    color: green;
 }

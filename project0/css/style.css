@@ -1,29 +1,82 @@
-body {
-  color: black;
+@charset "UTF-8";
+:root {
+  --text-highlight-color: darkcyan;
+  --text-notice-color: slategray;
+  --text-normal-color: black;
+  --nav-background-color: maroon;
 }
 
+:root body {
+  color: var(--text-normal-color);
+}
+
+header {
+  text-align: center;
+}
 header h1 {
-  color: darkcyan;
+  color: var(--text-highlight-color);
 }
 header > p {
-  color: slategray;
+  color: var(--text-notice-color);
 }
 header > p:hover {
   background-color: gold;
   color: black;
 }
 
-body {
+:root body {
   background-color: gainsboro;
 }
-body .target > li:nth-child(2) {
+@media screen and (max-width: 576px) {
+  :root body #nav.my-flex-sm-column {
+    flex-direction: column !important;
+  }
+}
+@media print {
+  :root body {
+    display: none;
+  }
+}
+:root body nav {
+  background-color: var(--nav-background-color);
+  font-size: 20px;
+}
+:root body nav .nav-link {
+  margin-left: 20px;
+  margin-right: 20px;
+  color: var(--text-notice-color);
+}
+:root body .target > li:nth-child(2) {
   font-style: italic;
   font-weight: bolder;
-  color: darkcyan;
+  color: var(--text-highlight-color);
+}
+@media screen and (min-width: 576px) {
+  :root body .emoji-list > li::before {
+    content: "☺️ ";
+  }
+}
+:root body table > thead th[scope=col], :root body table > thead td[scope=col] {
+  background-color: lightgray;
+  color: black;
+  font-size: 0.9rem;
+}
+:root body table > tbody *[scope=row] {
+  background-color: cadetblue;
+  border-radius: 4px;
+}
+:root body table > tbody td a, :root body table > tbody td a:hover, :root body table > tbody td a:link, :root body table > tbody td a:visited {
+  color: inherit;
+  text-decoration: inherit;
+  text-decoration-line: underline;
 }
 
 #first {
-  color: darkcyan;
+  color: slateblue;
+}
+
+.green {
+  color: green;
 }
 
 /*# sourceMappingURL=style.css.map */
